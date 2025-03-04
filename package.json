@@ -8,12 +8,12 @@
   ],
   "scripts": {
     "start:prod": "npm --prefix backend start",
-    "start:test": "npm --prefix backend start:test",
+    "start:test": "npm --prefix backend run start:test",
     "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
     "build": "rm -rf backend/dist && npm run build --prefix frontend && mv frontend/dist backend/",
     "lint": "concurrently \"npm --prefix backend run lint\" \"npm --prefix frontend run lint\"",
     "test": "concurrently \"npm --prefix backend test\" \"npm --prefix frontend test\"",
-    "test:e2e": "npm start:test & sleep 5 && npm --prefix e2e test"
+    "test:e2e": "npm run start:test & sleep 5 && npm --prefix e2e test"
   },
   "dependencies": {
     "concurrently": "^8.0.0"

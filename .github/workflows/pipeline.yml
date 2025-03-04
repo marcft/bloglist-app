@@ -11,11 +11,20 @@ on:
 jobs:
   deployment_pipeline:
     runs-on: ubuntu-latest
+    env:
+      PORT: ${{ vars.PORT }}
+      TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+      SECRET: ${{ secrets.SECRET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - name: Instalar variables de entorno
+        run: |
+          echo "PORT=${PORT}" >> .env
+          echo "TEST_MONGODB_URI=${TEST_MONGODB_URI}" >> .env
+          echo "SECRET=${SECRET}" >> .env
       - name: Install dependencies
         run: npm install
       - name: Check style
