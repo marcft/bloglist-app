@@ -39,7 +39,7 @@ app.use('/api/users', usersRouter)
 app.use('/api/blogs', blogsRouter)
 
 app.get('/health', (req, res) => {
-  res.send('ok')
+  res.send('OK')
 })
 
 if (process.env.NODE_ENV === 'test') {
