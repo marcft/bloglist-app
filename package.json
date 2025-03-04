@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start:prod": "npm --prefix backend start",
-    "start:test": "npm --prefix backend start:test",
+    "start:test": "npm --prefix backend run start:test",
     "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
     "build": "rm -rf backend/dist && npm run build --prefix frontend && mv frontend/dist backend/",
     "lint": "concurrently \"npm --prefix backend run lint\" \"npm --prefix frontend run lint\"",
